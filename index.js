@@ -116,11 +116,9 @@ function findProductBySku(sku) {
       const foundProduct = productosDelSuper.find(
         (product) => product.sku === sku
       );
-      if (foundProduct) {
-        resolve(foundProduct);
-      } else {
-        reject(`SKU: ${sku} No encontrado`);
-      }
+      foundProduct
+        ? resolve(foundProduct)
+        : reject(`SKU: ${sku} No encontrado`);
     }, 1500);
   });
 }
